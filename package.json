@@ -9,6 +9,9 @@
     "email": "luke.edwards05@gmail.com",
     "url": "lukeed.com"
   },
+  "bin": {
+    "polkadot": "bin.js"
+  },
   "files": [
     "*.js"
   ],
