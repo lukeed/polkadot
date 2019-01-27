@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "polkadot": "latest"
+  }
+}
