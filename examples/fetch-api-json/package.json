@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "polkadot"
+  },
+  "dependencies": {
+    "httpie": "latest",
+    "polkadot": "latest"
+  }
+}
