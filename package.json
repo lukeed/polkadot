@@ -16,7 +16,7 @@
     "*.js"
   ],
   "engines": {
-    "node": ">=8"
+    "node": ">=6"
   },
   "scripts": {
     "test": "tape test/*.js | tap-spec"
