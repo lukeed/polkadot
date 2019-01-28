@@ -23,7 +23,7 @@ module.exports = function (handler) {
 		},
 
 		listen() {
-			const handler = (r1, r2) => setImmediate($.handler.bind(null, r1, r2));
+			const handler = (r1, r2) => setImmediate($.handler, r1, r2);
 			($.server = $.server || createServer()).on('request', handler);
 			return $.server.listen.apply($.server, arguments);
 		}
