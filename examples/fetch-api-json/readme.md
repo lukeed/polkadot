@@ -3,7 +3,7 @@
 > **WARNING** Requires Node 7.4 or later – example uses `async` and `await`~!
 
 This example shows how to get and forward data from a third-party JSON API.<br>
-Specifically, it will forward the latest items from HNPWA's JSON API, utilizing [`httpie`]() for the server-side request.
+Specifically, it will forward the latest items from HNPWA's JSON API, utilizing [`httpie`](https://github.com/lukeed/httpie) for the server-side request.
 
 ## Setup
 

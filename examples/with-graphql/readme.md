@@ -3,7 +3,7 @@
 > **WARNING** Requires Node 7.4 or later – example uses `async` and `await`~!
 
 This example shows how to get and forward data from a GraphQL API request.<br>
-Specifically, it will forward infomation from the [GraphQL Pokemon Demo](https://github.com/lucasbento/graphql-pokemon), utilizing [`httpie`]() for the server-side request.
+Specifically, it will forward infomation from the [GraphQL Pokemon Demo](https://github.com/lucasbento/graphql-pokemon), utilizing [`httpie`](https://github.com/lukeed/httpie) for the server-side request.
 
 ## Setup
 
