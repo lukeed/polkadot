@@ -19,7 +19,7 @@ module.exports = function (handler) {
 			req.query = info.query ? parse(info.query) : {};
 			req.search = info.search;
 
-			loop(res, handler(req, res));
+			return loop(res, handler(req, res));
 		},
 
 		listen() {
