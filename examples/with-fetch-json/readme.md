@@ -18,3 +18,14 @@ $ npm start
 $ curl http://localhost:3000
 #=> (200) [{"id":19012872,"title":"3D cartoon..."}, ...]
 ```
+
+## Deploy
+
+> You may use [Up](https://up.docs.apex.sh/) or [Now](https://zeit.co/now) to deploy this example to the cloud seamlessly.
+
+```sh
+$ up
+# or
+$ now
+```
+

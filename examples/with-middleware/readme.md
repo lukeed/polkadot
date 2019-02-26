@@ -21,3 +21,13 @@ $ curl http://localhost:3000
 $ curl http://localhost:3000?id=1
 #=> (200) {"userId":1, "id":1, "title":"sunt...it", "body":"quia...ecto"}
 ```
+
+## Deploy
+
+> You may use [Up](https://up.docs.apex.sh/) or [Now](https://zeit.co/now) to deploy this example to the cloud seamlessly.
+
+```sh
+$ up
+# or
+$ now
+```

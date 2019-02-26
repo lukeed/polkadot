@@ -21,3 +21,13 @@ $ npm start
 $ curl -k https://localhost:3000
 #=> (200) Encrypted? true
 ```
+
+## Deploy
+
+> You may use [Up](https://up.docs.apex.sh/) or [Now](https://zeit.co/now) to deploy this example to the cloud seamlessly.
+
+```sh
+$ up
+# or
+$ now
+```

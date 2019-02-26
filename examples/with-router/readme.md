@@ -42,3 +42,13 @@ $ curl -X PUT http://localhost:3000/1 -d '{"title":"hello"}' -H 'content-type:ap
 $ curl -X DELETE http://localhost:3000/1
 #=> (204) ""
 ```
+
+## Deploy
+
+> You may use [Up](https://up.docs.apex.sh/) or [Now](https://zeit.co/now) to deploy this example to the cloud seamlessly.
+
+```sh
+$ up
+# or
+$ now
+```

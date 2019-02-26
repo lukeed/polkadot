@@ -23,3 +23,13 @@ $ curl http://localhost:3000
 $ curl http://localhost:3000?name=Squirtle
 #=> (200) {"number":"007","name":"Squirtle", "attacks":{"special":[...]}}
 ```
+
+## Deploy
+
+> You may use [Up](https://up.docs.apex.sh/) or [Now](https://zeit.co/now) to deploy this example to the cloud seamlessly.
+
+```sh
+$ up
+# or
+$ now
+```
