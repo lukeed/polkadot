@@ -25,6 +25,15 @@ test('(bin) throw if missing', t => {
 	t.end();
 });
 
+test('(bin) throw if syntax error', t => {
+	let file = join(fixtures, 'syntax.js');
+	let pid = spawnSync('node', [BIN, file]);
+	t.is(pid.status, 1, 'exits with non-zero code');
+	t.true(pid.stderr.toString().includes('SyntaxError: Unexpected token'), '~> stderr has "SyntaxError: Unexpected token" message');
+	t.is(pid.stdout.toString().trim(), '', '~> stdout is empty');
+	t.end();
+});
+
 test('(bin) entry :: default', async t => {
 	let pid = await run();
 	let { data, statusCode, headers } = await get('http://localhost:3000');
