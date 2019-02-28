@@ -7,3 +7,7 @@ before_script:
 
 script:
   - nyc npm test
+
+after_success:
+  - nyc report --reporter=text-lcov > coverage.lcov
+  - codecov
