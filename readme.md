@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/lukeed/polka/raw/master/polka.png" alt="polkadot" height="190" />
+  <img src="logo.png" alt="polkadot" height="260" />
 </div>
 
 <h1 align="center">Polkadot</h1>
