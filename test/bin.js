@@ -1,5 +1,6 @@
 const test = require('tape');
 const { join } = require('path');
+const { createServer } = require('http');
 const { spawn, spawnSync } = require('child_process');
 const { get } = require('httpie');
 
@@ -31,6 +32,19 @@ test('(bin) throw if syntax error', t => {
 	t.is(pid.status, 1, 'exits with non-zero code');
 	t.true(pid.stderr.toString().includes('SyntaxError: Unexpected token'), '~> stderr has "SyntaxError: Unexpected token" message');
 	t.is(pid.stdout.toString().trim(), '', '~> stdout is empty');
+	t.end();
+});
+
+test('(bin) throw if PORT in use', t => {
+	let net = createServer(() => {}).listen(3000);
+
+	let file = join(fixtures, 'index.js');
+	let pid = spawnSync('node', [BIN, file]);
+	t.is(pid.status, 1, 'exits with non-zero code');
+	t.true(pid.stderr.toString().includes('Error: listen EADDRINUSE'), '~> stderr has "Error: listen EADDRINUSE" message');
+	t.is(pid.stdout.toString().trim(), '', '~> stdout is empty');
+
+	net.close();
 	t.end();
 });
 
