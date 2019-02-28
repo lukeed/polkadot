@@ -2,7 +2,7 @@
   "name": "polkadot",
   "version": "0.2.0",
   "repository": "lukeed/polkadot",
-  "description": "WIP",
+  "description": "The tiny HTTP server that gets out of your way~!",
   "license": "MIT",
   "author": {
     "name": "Luke Edwards",
@@ -21,7 +21,13 @@
   "scripts": {
     "test": "tape test/*.js | tap-spec"
   },
-  "keywords": [],
+  "keywords": [
+    "microservice",
+    "serverless",
+    "service",
+    "http",
+    "api"
+  ],
   "dependencies": {
     "@polka/send-type": "^0.5.0",
     "@polka/url": "^0.5.0"
