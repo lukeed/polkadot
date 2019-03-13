@@ -153,16 +153,16 @@ module.exports = function (req, res) {
 }
 ```
 
-### 2. The `@polka/send-type` library
+### 2. The `@polka/send` library
 
-The [`@polka/send-type`](https://github.com/lukeed/polka/tree/master/packages/send-type) library is a utility function that composes your response through a simple API. It also inspects your response data and will auto-set its `Content-Type` (if unspecified) and `Content-Length` headers for you. Additionally, it will stringify Objects into JSON on your behalf!
+The [`@polka/send`](https://github.com/lukeed/polka/tree/next/packages/send) library is a utility function that composes your response through a simple API. It also inspects your response data and will auto-set its `Content-Type` (if unspecified) and `Content-Length` headers for you. Additionally, it will stringify Objects into JSON on your behalf!
 
-> **Note:** Check out its [Data Detections](https://github.com/lukeed/polka/tree/master/packages/send-type#data-detections) documentation.
+> **Note:** Check out its [Data Detections](https://github.com/lukeed/polka/tree/next/packages/send#data-detections) documentation.
 
-Because the [`@polka/send-type`](https://github.com/lukeed/polka/tree/master/packages/send-type) library is already a dependency of `polkadot`, using it comes at _no extra cost_!
+Because the [`@polka/send`](https://github.com/lukeed/polka/tree/next/packages/send) library is already a dependency of `polkadot`, using it comes at _no extra cost_!
 
 ```js
-const send = require('@polka/send-type');
+const send = require('@polka/send');
 
 module.exports = function (req, res) {
   send(res, 400, {
@@ -173,11 +173,11 @@ module.exports = function (req, res) {
 
 ### 3. Return data
 
-Polka uses the [`@polka/send-type`](https://github.com/lukeed/polka/tree/master/packages/send-type) library internally, which allows you to `return` data directly from your function handler instead of using the native APIs to format the response manually.
+Polka uses the [`@polka/send`](https://github.com/lukeed/polka/tree/next/packages/send) library internally, which allows you to `return` data directly from your function handler instead of using the native APIs to format the response manually.
 
-Because of this, `@polka/send-type` can inspect your outgoing data and determine its `Content-Type` (if unspecified) and `Content-Length` response headers on your behalf. Similarly, it will automatically convert Objects into JSON strings.
+Because of this, `@polka/send` can inspect your outgoing data and determine its `Content-Type` (if unspecified) and `Content-Length` response headers on your behalf. Similarly, it will automatically convert Objects into JSON strings.
 
-> **Note:** Check out its [Data Detections](https://github.com/lukeed/polka/tree/master/packages/send-type#data-detections) documentation.
+> **Note:** Check out its [Data Detections](https://github.com/lukeed/polka/tree/next/packages/send#data-detections) documentation.
 
 ```js
 module.exports = function (req, res) {
@@ -193,7 +193,7 @@ module.exports = function (req, res) {
 Polkadot works great with asynchronous functions!<br>
 You can certainly fetch data from external APIs, interact with databases, ...etc without any problems.
 
-Of course, your asynchronous chain(s) may also use native `res` APIs, the `@polka/send-type` helper, or may return data directly. All options are always available!
+Of course, your asynchronous chain(s) may also use native `res` APIs, the `@polka/send` helper, or may return data directly. All options are always available!
 
 The **only** rule is that if your handler _ends_ in a `Promise` or `AsyncFunction`, that function **must be returned** so that Polkadot can resolve it on your behalf.
 
@@ -201,7 +201,7 @@ The **only** rule is that if your handler _ends_ in a `Promise` or `AsyncFunctio
 
 ```js
 // For demo, not required
-const send = require('@polka/send-type');
+const send = require('@polka/send');
 
 // Using Promises
 module.exports = function (req, res) {
