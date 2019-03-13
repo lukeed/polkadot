@@ -6,10 +6,13 @@ const run = (fn, url, res) => fn({ url }, res);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 class Response {
-	constructor() {
+	constructor(req={}) {
 		this.body = '';
 		this.headers = {};
 		this.statusCode = 200;
+		this.socket = {
+			parser: { incoming:req }
+		};
 	}
 	getHeader(key) {
 		return this.headers[key.toLowerCase()];
@@ -98,7 +101,7 @@ test('polkadot.handler :: return', t => {
 	run(handler, '/alive', res);
 
 	let headers = {
-		'content-type': 'application/json;charset=utf-8',
+		'content-type': 'application/json; charset=utf-8',
 		'content-length': 13
 	};
 
@@ -151,7 +154,7 @@ test('polkadot.handler :: Promise', async t => {
 	await run(handler, '/delay?key=items', res);
 
 	let headers = {
-		'content-type': 'application/json;charset=utf-8',
+		'content-type': 'application/json; charset=utf-8',
 		'content-length': 17
 	};
 
@@ -178,7 +181,7 @@ test('polkadot.handler :: async', async t => {
 	await run(handler, '/delay?key=items', res);
 
 	let headers = {
-		'content-type': 'application/json;charset=utf-8',
+		'content-type': 'application/json; charset=utf-8',
 		'content-length': 17
 	};
 
