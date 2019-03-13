@@ -1,6 +1,6 @@
 const { createServer } = require('http');
 const { parse } = require('querystring');
-const send = require('@polka/send-type');
+const send = require('@polka/send');
 const url = require('@polka/url');
 
 function loop(res, out) {
