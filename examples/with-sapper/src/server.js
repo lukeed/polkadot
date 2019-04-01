@@ -7,14 +7,16 @@ const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
 const assets = sirv('static', { dev });
+const App = sapper.middleware();
 
 // Define the order of our middleware:
 //   1) Try to match files within "/static/**"
 //   2) If no files found, let Sapper do whatever it wants.
-// PS – We wrap `sirv` in Promise for "loop" helper
+// PS: We wrap w/ Promises for "loop" helper.
+//     Does not release request until all options exhausted.
 const middleware = [
 	(req, res) => new Promise(r => assets(req, res, r)),
-	sapper.middleware()
+	(req, res) => new Promise(r => App(req, res, r)),
 ];
 
 polkadot(async (req, res) => {
