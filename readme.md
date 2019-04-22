@@ -28,7 +28,7 @@
 
 * **Intentionally Minimal**<br>
     _Build your own stack! Polkadot doesn't even include a router._<br>
-    _Polkadot can accommodate any & all of your perferences. This is **your** app._
+    _Polkadot can accommodate any & all of your preferences. This is **your** app._
 
 * **Extremely Lightweight**<br>
     _Even with all dependencies, Polkadot weighs less than 15kB!_<br>
