@@ -23,6 +23,7 @@
   },
   "scripts": {
     "build": "bundt index.mjs",
+    "pretest": "bundt index.mjs",
     "test": "tape -r esm test/*.js | tap-spec"
   },
   "keywords": [
