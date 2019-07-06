@@ -3,10 +3,10 @@ node_js:
   - 8
 
 before_script:
-  - npm i -g nyc codecov
+  - npm i -g nyc@13 codecov
 
 script:
-  - nyc npm test
+  - nyc --extension=.mjs npm test
 
 after_success:
   - nyc report --reporter=text-lcov > coverage.lcov

@@ -1,7 +1,7 @@
-const { createServer } = require('http');
-const { parse } = require('querystring');
-const send = require('@polka/send');
-const url = require('@polka/url');
+import { createServer } from 'http';
+import { parse } from 'querystring';
+import send from '@polka/send';
+import url from '@polka/url';
 
 function loop(res, out) {
 	if (res.finished) return;
@@ -9,7 +9,7 @@ function loop(res, out) {
 		? out.then(d => loop(res, d)) : send(res, res.statusCode || 200, out);
 }
 
-module.exports = function (handler) {
+export default function (handler) {
 	const $ = {
 		server: null,
 

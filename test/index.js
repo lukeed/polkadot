@@ -1,6 +1,6 @@
-const { Server } = require('http');
-const test = require('tape');
-const fn = require('../');
+import { Server } from 'http';
+import test from 'tape';
+import fn from '../';
 
 const run = (fn, url, res) => fn({ url }, res);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
