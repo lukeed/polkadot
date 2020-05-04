@@ -42,7 +42,7 @@
     _Because Polkadot does so little, it's as ["blazing fast"](/bench) as they come._
 
 * **Async Support**<br>
-    _It's 2019 – time to `await` all the things~!_
+    _It's the 2020s – time to `await` all the things~!_
 
 
 
