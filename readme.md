@@ -141,7 +141,7 @@ These are the true, mostly unfettered<sup>1</sup> instances that the `http.Serve
 
 There are multiple ways to format or return the server response. You may mix and match them, as you are not restricted to a particular format in your application(s).
 
-### 1. Use Native APIs
+### Use Native APIs
 
 Because you have direct access to `res` (see [`ServerResponse`](https://nodejs.org/api/http.html#http_class_http_serverresponse)), you can set headers, the statusCode, and/or write response data with the core Node.js methods:
 
@@ -153,25 +153,7 @@ module.exports = function (req, res) {
 }
 ```
 
-### 2. The `@polka/send-type` library
-
-The [`@polka/send-type`](https://github.com/lukeed/polka/tree/master/packages/send-type) library is a utility function that composes your response through a simple API. It also inspects your response data and will auto-set its `Content-Type` (if unspecified) and `Content-Length` headers for you. Additionally, it will stringify Objects into JSON on your behalf!
-
-> **Note:** Check out its [Data Detections](https://github.com/lukeed/polka/tree/master/packages/send-type#data-detections) documentation.
-
-Because the [`@polka/send-type`](https://github.com/lukeed/polka/tree/master/packages/send-type) library is already a dependency of `polkadot`, using it comes at _no extra cost_!
-
-```js
-const send = require('@polka/send-type');
-
-module.exports = function (req, res) {
-  send(res, 400, {
-    error: 'Bad Request'
-  });
-}
-```
-
-### 3. Return data
+### Return data
 
 Polka uses the [`@polka/send-type`](https://github.com/lukeed/polka/tree/master/packages/send-type) library internally, which allows you to `return` data directly from your function handler instead of using the native APIs to format the response manually.
 
@@ -188,29 +170,27 @@ module.exports = function (req, res) {
 };
 ```
 
-### 4. Async Returns
+### Async Returns
 
 Polkadot works great with asynchronous functions!<br>
 You can certainly fetch data from external APIs, interact with databases, ...etc without any problems.
 
 Of course, your asynchronous chain(s) may also use native `res` APIs, the `@polka/send-type` helper, or may return data directly. All options are always available!
 
-The **only** rule is that if your handler _ends_ in a `Promise` or `AsyncFunction`, that function **must be returned** so that Polkadot can resolve it on your behalf.
+The **only** rule is that if your handler _ends_ in a `Promise` or `AsyncFunction` call, the promise **must be returned** so that Polkadot can resolve it on your behalf.
 
 > **Important:** The use of `AsyncFunction` is only supported in Node versions `7.4` and above.
 
 ```js
-// For demo, not required
-const send = require('@polka/send-type');
-
 // Using Promises
 module.exports = function (req, res) {
   // must `return` the Promise
   return isUser(req).then(user => {
     if (user) {
-      send(res, 200, { user });
+      return { user };
     } else {
-      send(res, 401, 'You must be logged in');
+      res.statusCode = 401;
+      return 'You must be logged in';
     }
   });
 };
@@ -219,9 +199,10 @@ module.exports = function (req, res) {
 module.exports = async function (req, res) {
   const user = await isUser(req);
   if (user) {
-    send(res, 200, { user });
+    return { user };
   } else {
-    send(res, 401, 'You must be logged in');
+    res.statusCode = 401;
+    return 'You must be logged in';
   }
 }
 ```
